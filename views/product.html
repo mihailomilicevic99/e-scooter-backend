@@ -1,0 +1,139 @@
+<head>
+
+  <title>Product Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Link to Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+      body {
+        background-color: #514848;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        height: 150%;
+      }
+    </style>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <div class="row" style="border-bottom: 2px solid #1f1e1e; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
+    <div class="col-5"></div>
+    <div class="col-4" style="text-align: left; color: white; margin-left: -20px;">
+      <h1><%= data.name.toUpperCase() %></h1>
+    </div>
+    <div class="col-4"></div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+      <img id="image" style="width: 300px; height: 300px;  border-radius: 50%;">
+      <script>
+        const img = document.getElementById("image");
+        img.src = "http://localhost:3000/api/images/" + <%= data.id %>;
+      </script>
+    </div>
+    <div class="col-5">
+      <h5 style="color: white; text-align: left; margin-left: -15px;"> <%=data.description %> </h5>
+    </div>
+  </div>
+
+  
+
+  <div class="row" style="margin-top: -30px;">
+    <div class="col-5"></div>
+    <div class="col-2" style="color: white;">
+        <p>Name:</p>
+    </div>
+    <div class="col-2" style="color: white;">
+      <p> <%=data.name %> </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-4">
+      <hr style="border-color: white; margin-top: -15px;">
+    </div>
+  </div>
+
+  
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-2" style="color: white;">
+        <p>Country of origin:</p>
+    </div>
+    <div class="col-2" style="color: white;">
+      <p> <%=data.origin_country %> </p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-4">
+      <hr style="border-color: white; margin-top: -15px;">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-2" style="color: white;">
+      <p>Year of production:</p>
+    </div>
+    <div class="col-2" style="color: white;">
+      <p> <%=data.production_year %> </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-4">
+      <hr style="border-color: white; margin-top: -15px;">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-2" style="color: white;">
+      <p>Producer:</p>
+    </div>
+    <div class="col-2" style="color: white;">
+      <p> <%=data.producer %> </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5"></div>
+    <div class="col-4">
+      <hr style="border-color: white; margin-top: -15px;">
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-6"></div>
+    <div class="col-1" style="color: white; text-align: center;">
+      <h5>Price:</h5>
+    </div>
+    <div class="col-1" style="color: white;">
+      <h5> <%=data.price %>$ </h5>
+    </div>
+  </div>
+
+  
+
+  
+</body>
