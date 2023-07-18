@@ -6,12 +6,12 @@ const ejs = require('ejs');
 
 var index = require('./routes/index'); 
 var users = require('./routes/users');
-var images = require('./routes/images');
+var images = require('./routes/gps');
 var scooters = require('./routes/scooters');
 var rides = require('./routes/rides');
 
 
-var port =  process.env.PORT || 8080;;
+var port =  process.env.PORT || 8080;
 
 
 var app = express();
@@ -43,7 +43,7 @@ app.use(cors());
 
 app.use('/', index );
 app.use('/api', users);
-app.use('/api', images);
+app.use('/api', gps);
 app.use('/api', scooters);
 app.use('/api', rides);
 
