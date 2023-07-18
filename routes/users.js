@@ -148,7 +148,7 @@ router.get('/users', function(req, res) {
 
 //check if user with matching email(username) exists
 router.get('/users/:email', function(req,res,next){
-    res.sendFile(path.join(__dirname, 'views/index.html'));
+    console.log("tu sam");
     db.users.find({username: req.params.email},function(err, user){
         if(err){
             res.send(err);
