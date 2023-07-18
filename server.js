@@ -6,7 +6,7 @@ const ejs = require('ejs');
 
 var index = require('./routes/index'); 
 var users = require('./routes/users');
-var images = require('./routes/gps');
+var gps = require('./routes/gps');
 var scooters = require('./routes/scooters');
 var rides = require('./routes/rides');
 
