@@ -11,7 +11,7 @@ var scooters = require('./routes/scooters');
 var rides = require('./routes/rides');
 
 
-var port =  3000;
+var port =  process.env.PORT || 8080;;
 
 
 var app = express();
