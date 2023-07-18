@@ -11,7 +11,7 @@ var scooters = require('./routes/scooters');
 var rides = require('./routes/rides');
 
 
-var port =  process.env.PORT || 8080;
+var port =  process.env.PORT || 3000;
 
 
 var app = express();
@@ -43,7 +43,7 @@ app.use(cors());
 
 app.use('/', index );
 app.use('/api', users);
-app.use('/api', gps);
+//app.use('/api', gps);
 app.use('/api', scooters);
 app.use('/api', rides);
 
