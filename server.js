@@ -18,7 +18,8 @@ var app = express();
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
+    //res.sendFile(path.join(__dirname, 'views/index.html'));
+    res.sendFile(path.join(__dirname, 'src/app/login/login.component.html'));
     });
 
 
