@@ -30,7 +30,8 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 
-app.use(express.static('./dist/webshop'));
+app.use(express.static(path.join(__dirname,'project')));
+//app.use(express.static('./dist/webshop'));
 
 
 
