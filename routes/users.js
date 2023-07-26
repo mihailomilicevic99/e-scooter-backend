@@ -65,6 +65,21 @@ router.get('/users/jwt/jwt/jwt', function(req,res,next){
 });
 
 
+//experimenting with coordinates
+router.post('/users/coordinates', function(req,res,next){
+    console.log("tu sam");
+    //const authorization = req.headers.authorization;
+                //var user = req.body;
+               /* db.users.save(user, function(err,user){
+                    if(err){
+                        res.send(err);
+                    }
+                    res.json(user);
+                });*/
+                res.json("ok");
+            
+});
+
 
 
 //insert new user
@@ -148,7 +163,6 @@ router.get('/users', function(req, res) {
 
 //check if user with matching email(username) exists
 router.get('/users/:email', function(req,res,next){
-    console.log("tu sam");
     db.users.find({username: req.params.email},function(err, user){
         if(err){
             res.send(err);
