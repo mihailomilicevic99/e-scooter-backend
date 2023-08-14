@@ -17,7 +17,7 @@ var port =  process.env.PORT || 3000;
 var app = express();
 
 
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'));
     //res.sendFile(path.join(__dirname, 'src/app/login/login.component.html'));
     });
@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 var cors = require('cors');
 app.use(cors());
 
-app.use('/index', index );
+app.use('/', index );
 app.use('/api', users);
 //app.use('/api', gps);
 app.use('/api', scooters);
