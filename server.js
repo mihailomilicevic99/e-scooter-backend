@@ -17,7 +17,7 @@ var port =  process.env.PORT || 3000;
 var app = express();
 
 
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'));
     //res.sendFile(path.join(__dirname, 'src/app/login/login.component.html'));
     });
