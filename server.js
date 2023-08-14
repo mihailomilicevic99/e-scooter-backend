@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 var cors = require('cors');
 app.use(cors());
 
-app.use('/', index );
+app.use('/index', index );
 app.use('/api', users);
 //app.use('/api', gps);
 app.use('/api', scooters);
