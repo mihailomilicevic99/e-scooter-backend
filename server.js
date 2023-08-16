@@ -9,6 +9,7 @@ var users = require('./routes/users');
 var gps = require('./routes/gps');
 var scooters = require('./routes/scooters');
 var rides = require('./routes/rides');
+var images = require('./routes/images');
 
 
 var port =  process.env.PORT || 3000;
@@ -31,7 +32,6 @@ app.engine('html', require('ejs').renderFile);
 
 
 app.use(express.static(path.join(__dirname,'project')));
-//app.use(express.static('./dist/webshop'));
 
 
 
@@ -46,6 +46,7 @@ app.use('/api', users);
 //app.use('/api', gps);
 app.use('/api', scooters);
 app.use('/api', rides);
+app.use('/api', images);
 
 
 app.listen(port, function(){
