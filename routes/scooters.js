@@ -278,6 +278,27 @@ router.put('/scooters/release/:id' , function(req,res,next){
 
 
 
+//update scooter coordinates
+router.put('/scooters/gps' , function(req,res,next){
+
+    let id = parseInt(req.body.id, 10);
+
+    let newLat = req.body.lat;
+    let newLong = req.body.long;
+                        
+                        
+    var newvalues = { $set: { latitude: newLat, longitude: newLong } };
+                        
+    db.scooters.update({id: id}, newvalues, function(err,scooter){
+        if(err){
+            res.send(err);
+        }
+        res.json(scooter);
+    });
+});
+
+
+
 //update scooter with matching id
 router.put('/scooters/:id' , function(req,res,next){
     const authorization = req.headers.authorization;
@@ -316,6 +337,86 @@ router.put('/scooters/:id' , function(req,res,next){
             }
         });
     }
+
+});
+
+
+
+//insert or delete token
+router.put('/scooters/token/:id' , function(req,res,next){
+    const authorization = req.headers.authorization;
+    
+    if (!authorization) {
+        res.status(401).send({ error: 'No token provided' });
+    }
+    else{
+        const token = authorization.split(' ')[1];
+        jwt.verify(token, secret, (err, decoded) => {
+            if (err) {
+                res.status(401).send({ error: 'Token is not valid' });
+            } 
+            else {
+
+                decoded = verifyJWT(token, secret);
+                    if (!decoded) {
+                        return res.status(401).send({ message: 'Unauthorized' });
+                    }
+
+
+                    
+
+                        let id = parseInt(req.params.id, 10);
+                        
+                        
+                        var newvalues = { $set: { token: req.body } };
+                        
+                        db.scooters.update({id: id}, newvalues, function(err,scooter){
+                            if(err){
+                                res.send(err);
+                            }
+                            res.json(scooter);
+                        });
+                    
+            }
+        });
+    }
+
+});
+
+
+
+//get token
+router.get('/scooters/:id', function(req, res) {
+    const authorization = req.headers.authorization;
+    
+    if (!authorization) {
+        res.status(401).send({ error: 'No token provided' });
+    }
+    else{
+        const token = authorization.split(' ')[1];
+        jwt.verify(token, secret, (err, decoded) => {
+            if (err) {
+                res.status(401).send({ error: 'Token is not valid' });
+            } 
+            else {
+                decoded = verifyJWT(token, secret);
+                if (!decoded) {
+                    return res.status(401).send({ message: 'Unauthorized' });
+                }
+
+
+                db.scooters.find({id: parseInt(req.params.id,10)},function(err, scooter){
+                    if(err){
+                        res.send(err);
+                    }
+                    res.json(scooter.token);
+                }); 
+                
+            }
+        });
+    }
+            
+    
 
 });
 
