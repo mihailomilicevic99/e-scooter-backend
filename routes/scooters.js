@@ -386,6 +386,7 @@ router.put('/scooters/token/:id' , function(req,res,next){
 
 //get token
 router.get('/scooters/token/:id', function(req, res) {
+    console.log("backend")
     const authorization = req.headers.authorization;
     
     if (!authorization) {
