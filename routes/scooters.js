@@ -367,8 +367,7 @@ router.put('/scooters/token/:id' , function(req,res,next){
 
                         let id = parseInt(req.params.id, 10);
                         
-                        
-                        var newvalues = { $set: { token: req.body } };
+                        var newvalues = { $set: { token: req.body.token } };
                         
                         db.scooters.update({id: id}, newvalues, function(err,scooter){
                             if(err){
